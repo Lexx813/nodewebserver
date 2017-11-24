@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 var app = express();
 
 // SETTING UP EXPRESS FOR HBS
@@ -25,10 +26,7 @@ app.use((req, res, next) => {
 });
 
 
-// app.use((req, res, next) => {
-//     res.render('maintenance');
-  
-// });
+
 
 
 // put it after middleware to block 
@@ -60,6 +58,8 @@ app.get('/bad', (req, res) => {
     res.send({errorMessage: 'this is a bad request'});
 })
 
-app.listen(3000, () => {
-    console.log('server started');
+
+
+app.listen(port, () => {
+    console.log(`server started ${port}`);
 });
